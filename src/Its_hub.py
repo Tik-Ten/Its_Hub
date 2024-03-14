@@ -137,12 +137,12 @@ ____________________________________________
             self.Name = Database_name
         def Create_database(self):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 152)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 140)
             connect = SQL.connect(self.Address + self.Name + ".db")
             connect.close()
         def Create_Table(self):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 157)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 145)
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""CREATE TABLE IF NOT EXISTS {self.Table_name} ({self.Table_Attributes});""")
@@ -150,7 +150,7 @@ ____________________________________________
             connect.close()
         def Save_in_database(self, Attributes):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 165)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 153)
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""INSERT INTO {self.Table_name} ({self.Table_Attributes})
@@ -159,7 +159,7 @@ ____________________________________________
             connect.close()
         def Read_database(self, SELECT, WHERE=None):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 174)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 162)
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""SELECT {SELECT} FROM {self.Table_name} WHERE {WHERE};""")
@@ -168,13 +168,13 @@ ____________________________________________
     class Computer_Vision():
         def Start_video(_, VideoCapture=0, Show=True, exit_button="q", Detect_Hands=False, Detect_Faces=False, Detect_Pose=False):
             try: import cv2 as cv 
-            except ImportError: Return_error("Import error.  You must install opencv library with: \npip install opencv-python", 0, 183)
+            except ImportError: Return_error("Import error.  You must install opencv library with: \npip install opencv-python", 0, 171)
             if Detect_Hands != False or Detect_Faces != False or Detect_Pose != False: 
                 try: 
                     from cvzone.HandTrackingModule import HandDetector
                     from cvzone.FaceDetectionModule import FaceDetector
                     from cvzone.PoseModule import PoseDetector
-                except ImportError: Return_error("Import error.  You must install cvzone library with: \npip install cvzone", 0, 189)
+                except ImportError: Return_error("Import error.  You must install cvzone library with: \npip install cvzone", 0, 177)
             cap = cv.VideoCapture(VideoCapture)
             cap = cv.VideoCapture(0)
             try:
@@ -201,7 +201,7 @@ ____________________________________________
             self.gender = gender
         def Say(self, save_voice=False, File_name="voice.mp3"):
             try: import pyttsx3
-            except ImportError: Return_error("Import error. You must import pyttsx3 library with: \npip install pyttsx3", 0, 216)
+            except ImportError: Return_error("Import error. You must import pyttsx3 library with: \npip install pyttsx3", 0, 204)
             engine = pyttsx3.init()
             engine.setProperty('rate', int(self.speed))
             voices = engine.getProperty('voices')
@@ -213,22 +213,22 @@ ____________________________________________
     class QR():
         def Create_QR(_, Data, name="qrcode.png"):
             try: import qrcode
-            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, 228)
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, 216)
             img = qrcode.make(data=Data)
             img.save(name)
     class Web():
         def Open_website(URL):
             try: import webbrowser 
-            except ImportError: Return_error("Import error. You must import webbrowser library.", 0, 234)
+            except ImportError: Return_error("Import error. You must import webbrowser library.", 0, 222)
             webbrowser.open(url=URL)
     class OS():
         def Remove_file(_, File_address):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 239) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 227) 
             os.remove(File_address)           
         def Remove_dir(_, Dir_address):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 243) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 231) 
             os.removedirs(Dir_address)
         def Create_file(_, File_name, File_address=""):
             if File_address != "": file = open(f"{File_address}\\{File_name}", "w")
@@ -236,22 +236,22 @@ ____________________________________________
             file.close()
         def Get_code_address(_):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 251) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 239) 
             return os.getcwd() 
         def Read_file(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 255) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 243) 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             file = open(address, 'r')
             return file.read()
         def Check_exist(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 261) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 249) 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             return os.path.exists(address)
         def Get_file_size(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 266) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 254) 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             return str(os.path.getsize(address)) + " bytes"
     class Encryption_string():
@@ -291,15 +291,15 @@ ____________________________________________
             self.text = text
         def Show_info(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 306)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 294)
             message.showinfo(title=self.title, message=self.text)
         def Show_warning(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 310)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 298)
             message.showwarning(title=self.title, message=self.text)
         def Show_error(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 314)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 302)
             message.showerror(title=self.title, message=self.text)
     class Hash():
         def __init__(self, text, salt="13e355e545r45r8ew83q90123e", Hash_level="High"): # hash level can be Medium and Low
@@ -308,7 +308,7 @@ ____________________________________________
             self.salt = salt
         def Encode(self):
             try: from hashlib import md5, sha1, sha224, sha256, sha384, sha512
-            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 322)
+            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 311)
             text = str(md5(self.Text).hexdigest()).encode()
             if self.Hash_level == "High":
                 text = str(self.salt + sha1(text).hexdigest() + self.salt).encode()
@@ -328,7 +328,7 @@ ____________________________________________
             self.file_name = file_name
         def Create(self):
             try: from hashlib import md5
-            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 322)
+            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 331)
             address = GET_ADDRESS(self.file_address, self.file_name)
             with open(address, "r") as reader:
                 read = reader.readlines()
@@ -340,11 +340,11 @@ ____________________________________________
             pass
         def Listener(self):
             try: import pynput
-            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 343)
             def on_click(x, y, button, pressed):
                 if pressed:
                     try: import pynput
-                    except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+                    except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 347)
                     if button == pynput.mouse.Button.left:
                         return "L"
                     elif button == pynput.mouse.Button.right:
@@ -355,11 +355,24 @@ ____________________________________________
                 listener.join()
         def Disable_mouse(self):
             try: import pynput
-            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 358)
             mouse_listener = pynput.mouse.Listener(suppress=True)
             mouse_listener.start()
         def Enable_mouse(self):
             try: import pynput
-            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 363)
             mouse_listener = pynput.mouse.Listener(suppress=True)
             mouse_listener.stop()
+    class Keyboard():
+        def __init__(self) -> None:
+            pass
+        def Disable_keyboard(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 371)
+            keyboard_listener = pynput.keyboard.Listener(suppress=True)
+            keyboard_listener.start()
+        def Enable_mouse(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 376)
+            keyboard_listener = pynput.keyboard.Listener(suppress=True)
+            keyboard_listener.stop()
