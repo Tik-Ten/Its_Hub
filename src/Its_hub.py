@@ -57,7 +57,8 @@ def GET_ADDRESS(File_address="", File_name="text.txt"):
     else: address = File_name
     return address
 class Its_Hub():
-    print("YOU USING ***Its_Hub*** LIBRARY FOR DO SOMETHING IN THIS CODE.")
+    print("""YOU USING ***Its_Hub*** LIBRARY FOR DO SOMETHING IN THIS CODE.
+This Library Created By Farbod Parkhooi (https://github.com/Unknow-per/Its-Hub_Library)""")
     def Faker(target):
         try: from faker import Faker
         except ImportError: Return_error("import error. \nYou must install Faker library with: \npip3 install Faker", 0, 63)
