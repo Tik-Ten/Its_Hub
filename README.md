@@ -26,14 +26,14 @@ Thanks for use.<br />
 # How to install
 For download this library:
 ```git
-git clone https://github.com/Tik-Ten/Its_Hub.git
+git clone https://github.com/Unknow-per/Its_Hub-Library
 cd Its_Hub
 pip install -r requirements.txt
 python setup.py <Your python libraries address>
 cd ..
 rmdir /s Its_Hub
 ```
-example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
+example for python libraries address: <b>"C:/Users/Unknow-Per/AppData/Local/Programs/Python/Python311/Lib" </b>
 You must remove the Its_Hub directory to install other updates
 
 # How to remove
@@ -42,7 +42,7 @@ To remove this app:
 cd Its_Hub
 python remove.py <Your python libraries address>
 ```
-example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
+example for python libraries address: <b>"C:/Users/Unknow-per/AppData/Local/Programs/Python/Python311/Lib" </b>
 
 # Check
 ```Python
