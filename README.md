@@ -1,5 +1,7 @@
 # Version: 0.2.7
 
+<h3>Hello. This is the Original <b>updatest </b>mode of Its_Hub Library. Don't use the <a href="https://github.com/tik-ten/Its_Hub-Library">Old URL </a> </h3>
+
 <h1>Intro </h1>
 <p>
 Its_Hub library. <br />
@@ -24,12 +26,12 @@ Thanks for use.<br />
 # How to install
 For download this library:
 ```git
->>> git clone https://github.com/Tik-Ten/Its_Hub.git
->>> cd Its_Hub
->>> pip install -r requirements.txt
->>> python setup.py <Your python libraries address>
->>> cd ..
->>> rmdir /s Its_Hub
+git clone https://github.com/Tik-Ten/Its_Hub.git
+cd Its_Hub
+pip install -r requirements.txt
+python setup.py <Your python libraries address>
+cd ..
+rmdir /s Its_Hub
 ```
 example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
 You must remove the Its_Hub directory to install other updates
@@ -37,8 +39,8 @@ You must remove the Its_Hub directory to install other updates
 # How to remove
 To remove this app:
 ```git
->>> cd Its_Hub
->>> python remove.py <Your python libraries address>
+cd Its_Hub
+python remove.py <Your python libraries address>
 ```
 example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
 

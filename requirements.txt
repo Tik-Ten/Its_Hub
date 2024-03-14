@@ -4,3 +4,5 @@ cvzone
 opencv-python
 pyttsx3
 qrcode
+pynput
+six
