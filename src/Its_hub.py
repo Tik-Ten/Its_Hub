@@ -129,18 +129,6 @@ ____________________________________________
             root.geometry("400x500")
             root.title("Your fake profile is ready!")
             root.mainloop()
-    class Mini():
-        def Plus(number, plus):
-            try: return number + int(plus)
-            except: Return_error("Value error. Plus isn't int!", 0, 135)
-        def Count(start_number, range_num):
-            try: 
-                start_number = int(start_number)
-                range_num = int(range_num)
-            except ValueError: Return_error("Value error. Start_number or range_num isn't int!", 0, 140)
-            for i in range(range_num):
-                start_number = start_number + 1
-            return start_number
     class SQL():
         def __init__(self, Table_name, Table_Attributes, Database_address="", Database_name="database"):
             self.Table_name = Table_name
@@ -347,3 +335,31 @@ ____________________________________________
                 read = "".join(read).encode()
                 result = md5(read).hexdigest()
                 return result
+    class Mouse():
+        def __init__(self) -> None:
+            pass
+        def Listener(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    try: import pynput
+                    except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+                    if button == pynput.mouse.Button.left:
+                        return "L"
+                    elif button == pynput.mouse.Button.right:
+                        return "R"
+                    elif button == pynput.mouse.Button.middle:
+                        return "M"
+            with pynput.mouse.Listener(on_click=on_click) as listener:
+                listener.join()
+        def Disable_mouse(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            mouse_listener = pynput.mouse.Listener(suppress=True)
+            mouse_listener.start()
+        def Enable_mouse(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 340)
+            mouse_listener = pynput.mouse.Listener(suppress=True)
+            mouse_listener.stop()
