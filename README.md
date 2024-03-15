@@ -350,6 +350,20 @@ Mouse = hub.Mouse()
 mouse_click = Mouse.Listener()
 ```
 
+### Disable_mouse
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+Mouse.Disable_mouse()
+```
+
+### Enable_mouse
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+Mouse.Enable_mouse()
+```
+
 # Links
 <ul>
     <li><a href="https://simple.wikipedia.org/w/index.php?title=User%3AFarbod_Parkhooi%2FIts_Hub_Library">Wikipedia</a></li>

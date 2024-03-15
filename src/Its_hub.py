@@ -378,3 +378,4 @@ ____________________________________________
             except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 376)
             keyboard_listener = pynput.keyboard.Listener(suppress=True)
             keyboard_listener.stop()
+
