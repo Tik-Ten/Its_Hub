@@ -6,3 +6,4 @@ pyttsx3
 qrcode
 pynput
 six
+colorama
