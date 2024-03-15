@@ -364,6 +364,22 @@ Mouse = hub.Mouse()
 Mouse.Enable_mouse()
 ```
 
+# Keyboard
+
+### Disable_keyboard
+```python
+hub = Its_Hub()
+Keyboard = hub.Keyboard()
+Keyboard.Disable_keyboard()
+```
+
+### Enable_keyboard
+```python
+hub = Its_Hub()
+Keyboard = hub.Keyboard()
+Keyboard.Enable_keyboard()
+```
+
 # Links
 <ul>
     <li><a href="https://simple.wikipedia.org/w/index.php?title=User%3AFarbod_Parkhooi%2FIts_Hub_Library">Wikipedia</a></li>
