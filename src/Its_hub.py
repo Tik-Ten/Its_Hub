@@ -373,7 +373,7 @@ ____________________________________________
             except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 371)
             keyboard_listener = pynput.keyboard.Listener(suppress=True)
             keyboard_listener.start()
-        def Enable_mouse(self):
+        def Enable_keyboard(self):
             try: import pynput
             except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 376)
             keyboard_listener = pynput.keyboard.Listener(suppress=True)
