@@ -348,11 +348,11 @@ ____________________________________________
                     try: import pynput
                     except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 347)
                     if button == pynput.mouse.Button.left:
-                        return "L"
+                        print("Left")
                     elif button == pynput.mouse.Button.right:
-                        return "R"
+                        print("Right")
                     elif button == pynput.mouse.Button.middle:
-                        return "M"
+                        print("Middle")
             with pynput.mouse.Listener(on_click=on_click) as listener:
                 listener.join()
         def Disable_mouse(self):
