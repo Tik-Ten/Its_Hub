@@ -32,8 +32,9 @@ TKHTMLVIEW
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 My name is Farbod Parkhooi(Or you can call me Tik Ten)
 This library Wikipedia page: https://simple.wikipedia.org/w/index.php?title=User%3AFarbod_Parkhooi%2FIts_Hub_Library
-This is Its_Hub doucuments: https://www.github.com/tik-ten/Its_Hub
+This is Its_Hub doucuments: https://www.github.com/Unknow-per/Its_Hub
 This is my Github link: https://www.github.com/tik-ten
+This Github profile is for my Hacking Tools: https://www.github.com/Unknow-per
 Thanks for use.
 """
 def Return_error(error, exit_code, class_name): 
@@ -41,10 +42,11 @@ def Return_error(error, exit_code, class_name):
 _____________________________________________________________________________________
 We have an error!                                                                   |
                                                                                     |
-I think error it's:                                                                 |
+I think error is this:                                                                 |
 {error}                                                                |
                                                                                     |
 I think it's in {class_name} class of Its_Hub Library.                                      |
+You can read and change it for yourself!                                            |
 Now i quit with exit code: {exit_code}                                                        |
 From Its_Hub library.                                                               |
 ____________________________________________________________________________________|
