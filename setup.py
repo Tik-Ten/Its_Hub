@@ -1,6 +1,6 @@
 import shutil
 import sys
-src = r"src/Its_hub.py"
+src = r"src/Its_Hub.py"
 dst = sys.argv[1] # Python libraries address
 dst = rf"{dst}"
 print("dst = " + dst)
