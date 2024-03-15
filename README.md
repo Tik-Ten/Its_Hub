@@ -58,6 +58,8 @@ Its_Hub Library version is 0.0.9
     <li><a href="#Encryption_string">Encryption_string </a></li>
     <li><a href="#Hash">Hash </a></li>
     <li><a href="#Hash_file">Hash_file </a></li>
+    <li><a href="#Mouse">Mouse </a></li>
+    <li><a href="#Keyboard">Keyboard </a></li>
 </ul>
 
 # How to use ... class
@@ -75,6 +77,8 @@ Its_Hub Library version is 0.0.9
     <li><a href="#Digital_message">Digital_message </a></li>
     <li><a href="#Hash">Hash </a></li>
     <li><a href="#Hash_file">Hash_file </a></li>
+    <li><a href="#Mouse">Mouse </a></li>
+    <li><a href="#Keyboard">Keyboard </a></li>
     <li><a href="#Links">Links </a></li>
     <li><a href="#Donate">Donate </a></li>
 </ul>
@@ -114,19 +118,7 @@ profile = hub.Fake_profile()
 Profile_list = profile.Create_profile()
 print(Profile_list)
 ```
-# Mini
-### Plus
-You can use this function for num1 + num2 (:
-```python
-result = hub.Mini.Plus(number=8, plus=10)
-print(ans)
-```
-### Count
-You can count and plus with this function.
-```Python
-count_ans = hub.Mini.Count(0, 5)
-print(count_ans)
-```
+
 
 # SQL
 ### Create_database
@@ -347,6 +339,15 @@ output with default salt:
 Hash_file = hub.Hash_file(file_address="C:\\Users\\Farbod Parkhooi\\", file_name="text.txt")
 Hashed = Hash_file.Create()
 print(Hashed)
+```
+
+# Mouse
+
+### Listener
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+mouse_click = Mouse.Listener()
 ```
 
 # Links
