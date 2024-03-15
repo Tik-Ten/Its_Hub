@@ -213,11 +213,33 @@ ____________________________________________
             if save_voice != False: engine.save_to_file(self.text, File_name)
             engine.runAndWait()
     class QR():
-        def Create_QR(_, Data, name="qrcode.png"):
+        def Create_QR(_, link, name="qrcode.png"):
             try: import qrcode
             except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, 216)
-            img = qrcode.make(data=Data)
+            img = qrcode.make(data=link)
             img.save(name)
+        def GUI(_):
+            try: 
+                import qrcode
+                from tkinter import Tk, Entry, Label, Button
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, 216)
+            root = Tk()
+            Label(root, text="Link:").place(x=15, y=80)
+            Label(root, text="image name: ").place(x=15, y=150)
+            name = Entry(root, width=50)
+            link = Entry(root, width=50)
+            name.place(x=120, y=150)
+            link.place(x=80, y=80)
+            def Create():
+                link_o = link.get()
+                name_o = name.get()
+                img = qrcode.make(data=link_o)
+                img.save(name_o)
+            Button(root, text="Submit", command=Create).place(x=15, y=200)
+            root.resizable(False, False)
+            root.title("QR Code Creator(GUI)")
+            root.geometry("500x300")
+            root.mainloop()
     class Web():
         def Open_website(URL):
             try: import webbrowser 
@@ -378,4 +400,3 @@ ____________________________________________
             except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, 376)
             keyboard_listener = pynput.keyboard.Listener(suppress=True)
             keyboard_listener.stop()
-
