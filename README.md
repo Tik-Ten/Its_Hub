@@ -60,6 +60,7 @@ Its_Hub Library version is 0.0.9
     <li><a href="#Hash_file">Hash_file </a></li>
     <li><a href="#Mouse">Mouse </a></li>
     <li><a href="#Keyboard">Keyboard </a></li>
+    <li><a href="#QR">QR -> GUI </a></li>
 </ul>
 
 # How to use ... class
@@ -194,10 +195,16 @@ voice.Say(save_voice=True, File_name="voice.mp3")
 ### Create_QR
 ```Python
 qr = hub.QR()
-qr.Create_QR(Data="https://www.github.com/tik-ten/Its_Hub/", name="qrcode.png")
+qr.Create_QR(link="https://www.github.com/tik-ten/Its_Hub/", name="qrcode.png")
 ```
 output: <br>
 <img src="Files\out5.png">
+
+### GUI
+```python
+qr = hub.QR()
+qr.GUI()
+```
 
 # Web
 
