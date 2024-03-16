@@ -45,11 +45,18 @@ python remove.py <Your python libraries address>
 example for python libraries address: <b>"C:/Users/Unknow-per/AppData/Local/Programs/Python/Python311/Lib" </b>
 
 # Check
-```Python
+```python
 import Its_Hub
 Its_Hub.__version__()
 # Output:
 Its_Hub Library version is 0.0.9
+```
+
+# Test all functions
+```terminal
+cd src/test/
+python test.py
+#If you open this and you dont have any errors your library is complete installed
 ```
 
 # Our products
