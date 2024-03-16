@@ -47,7 +47,7 @@ print(search_result)
 # Computer_Vision
 print("\nComputer_Vision")
 cv = Hub.Computer_Vision()
-# cv.Start_video(VideoCapture=0, Show=True, exit_button="q", Detect_Faces=True, Detect_Hands=True, Detect_Pose=True)
+cv.Start_video(VideoCapture=0, Show=True, exit_button="q", Detect_Faces=True, Detect_Hands=True, Detect_Pose=True)
 
 # Voice -> Say
 print("\nVoice -> Say")
