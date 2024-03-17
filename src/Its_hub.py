@@ -294,6 +294,10 @@ ____________________________________________
             try: from os import system as osystem
             except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Create_directory") 
             osystem(f"mkdir {Dir_name}")
+        def Get_IP(_):
+            import socket
+            IPAddress = socket.gethostbyname(socket.gethostname())
+            return IPAddress
     class Encryption_string():
         def __init__(self, text, shift=5): # For dir you can use "dec" too
             self.text = text.lower()
