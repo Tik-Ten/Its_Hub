@@ -245,12 +245,11 @@ os.Remove_dir(Dir_address="C:\Users\Farbod Parkhooi\Test_dir")
 ```Python
 os = hub.OS()
 os.Create_file(File_name="text.txt")
-```
 
 # Also you can change the address of the file
 os.Create_file(File_name="text.txt", File_address="C:\Users\Farbod Parkhooi\Test_dir")
-```
 
+```
 ### Create_directory
 ```Python
 os = hub.OS()
