@@ -245,6 +245,7 @@ os.Remove_dir(Dir_address="C:\Users\Farbod Parkhooi\Test_dir")
 ```Python
 os = hub.OS()
 os.Create_file(File_name="text.txt")
+```
 
 # Also you can change the address of the file
 os.Create_file(File_name="text.txt", File_address="C:\Users\Farbod Parkhooi\Test_dir")
@@ -288,6 +289,13 @@ print(result)
 os = hub.OS()
 size = os.Get_app_size(File_address="", File_name="text.txt")
 print(size)
+```
+
+### Get_IP
+```Python
+os = hub.OS()
+IP = os.Get_IP()
+print(IP)
 ```
 
 # Encryption_string
