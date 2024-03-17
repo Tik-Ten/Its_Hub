@@ -290,10 +290,10 @@ ____________________________________________
             except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Get_file_size") 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             return str(os.path.getsize(address)) + " bytes"
-        def Create_directory():
+        def Create_directory(_, Dir_name="folder"):
             try: from os import system as osystem
             except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Create_directory") 
-            osystem("mkdir Hello")
+            osystem(f"mkdir {Dir_name}")
     class Encryption_string():
         def __init__(self, text, shift=5): # For dir you can use "dec" too
             self.text = text.lower()

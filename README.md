@@ -250,6 +250,12 @@ os.Create_file(File_name="text.txt")
 os.Create_file(File_name="text.txt", File_address="C:\Users\Farbod Parkhooi\Test_dir")
 ```
 
+### Create_directory
+```Python
+os = hub.OS()
+os.Create_directory(Dir_name="Folder")
+```
+
 ### Get_code_address
 ```Python
 os = hub.OS()
