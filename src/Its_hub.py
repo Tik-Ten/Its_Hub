@@ -52,8 +52,7 @@ From Its_Hub library.                                                           
 ____________________________________________________________________________________|
 """)
     quit(exit_code)
-def __version__():
-    print("Its_Hub Library version is 0.3.0")
+def __version__(): print("Its_Hub Library version is 0.3.0")
 def GET_ADDRESS(File_address="", File_name="text.txt"):
     if File_address != "": address = File_address + File_name
     else: address = File_name
@@ -172,6 +171,14 @@ ____________________________________________
             cursor.execute(f"""SELECT {SELECT} FROM {self.Table_name} WHERE {WHERE};""")
             try: return str(cursor.fetchall()[0][0])
             except IndexError: return "not exist"
+        def Custome_command(self, command):
+            try: import sqlite3 as SQL
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Read_database")
+            connect = SQL.connect(self.Address + self.Name + ".db")
+            cursor = connect.cursor()
+            cursor.execute(command)
+            try: return str(cursor.fetchall())
+            except IndexError: return False
     class Computer_Vision():
         def Start_video(_, VideoCapture=0, Show=True, exit_button="q", Detect_Hands=False, Detect_Faces=False, Detect_Pose=False):
             try: import cv2 as cv 
