@@ -137,21 +137,28 @@ sql.Create_database()
 
 ### Create_Table
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'")
 sql.Create_Table()
 ```
 
 ### Save_in_database
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'")
 sql.Save_in_database("'Farbod Parkhooi', 'your@email.com', 'Example@2023'")
 ```
 
 ### Read_database
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'") 
 search_result = sql.Read_database("Email", "Name='Farbod Parkhooi'")
 print(search_result)
+```
+
+### Custome_command
+```python
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'") 
+output = sql.Custome_command(command="NULL;") # your command
+print(output)
 ```
 
 # Computer_Vision
