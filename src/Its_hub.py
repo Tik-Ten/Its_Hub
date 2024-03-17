@@ -52,7 +52,7 @@ From Its_Hub library.                                                           
 ____________________________________________________________________________________|
 """)
     quit(exit_code)
-def __version__(): print("Its_Hub Library version is 0.3.0")
+def __version__(): print("Its_Hub Library version is 0.3.2")
 def GET_ADDRESS(File_address="", File_name="text.txt"):
     if File_address != "": address = File_address + File_name
     else: address = File_name
