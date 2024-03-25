@@ -6,7 +6,7 @@
 <p>
 Its_Hub library. <br />
 This is a library with Other Libraries! (; <br />
-U Can Use This Library For Use a Few Other Libraries. 4 Example:
+U Can Use This Library To Use a Few Other Libraries. 4 Example:
 <b>
 <ul>
     <li>Faker</li>
@@ -20,11 +20,11 @@ U Can Use This Library For Use a Few Other Libraries. 4 Example:
 
 My name is Farbod Parkhooi(Or you can call me Tik Ten) <br />
 This is my Github link: <a href="https://www.github.com/tik-ten/">`https://www.github.com/tik-ten/`</a> <br />
-Thanks for use.<br />
+Thanks to use.<br />
 </p>
 
 # How to install
-For download this library:
+To download this library:
 ```git
 git clone https://github.com/Unknow-per/Its_Hub-Library
 cd Its_Hub
