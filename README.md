@@ -1,10 +1,12 @@
-# Version: 0.2.7
+# Version: 0.3.2
+
+<h3>Hello. This is the Original <b>updatest </b>mode of Its_Hub Library. Don't use the <a href="https://github.com/tik-ten/Its_Hub-Library">Old URL </a> </h3>
 
 <h1>Intro </h1>
 <p>
 Its_Hub library. <br />
 This is a library with Other Libraries! (; <br />
-U Can Use This Library For Use a Few Other Libraries. 4 Example:
+U Can Use This Library To Use a Few Other Libraries. 4 Example:
 <b>
 <ul>
     <li>Faker</li>
@@ -18,36 +20,43 @@ U Can Use This Library For Use a Few Other Libraries. 4 Example:
 
 My name is Farbod Parkhooi(Or you can call me Tik Ten) <br />
 This is my Github link: <a href="https://www.github.com/tik-ten/">`https://www.github.com/tik-ten/`</a> <br />
-Thanks for use.<br />
+Thanks to use.<br />
 </p>
 
 # How to install
-For download this library:
+To download this library:
 ```git
->>> git clone https://github.com/Tik-Ten/Its_Hub.git
->>> cd Its_Hub
->>> pip install -r requirements.txt
->>> python setup.py <Your python libraries address>
->>> cd ..
->>> rmdir /s Its_Hub
+git clone https://github.com/Unknow-per/Its_Hub-Library
+cd Its_Hub
+pip install -r requirements.txt
+python setup.py <Your python libraries address>
+cd ..
+rmdir /s Its_Hub
 ```
-example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
+example for python libraries address: <b>"C:/Users/Unknow-Per/AppData/Local/Programs/Python/Python311/Lib" </b>
 You must remove the Its_Hub directory to install other updates
 
 # How to remove
 To remove this app:
 ```git
->>> cd Its_Hub
->>> python remove.py <Your python libraries address>
+cd Its_Hub
+python remove.py <Your python libraries address>
 ```
-example for python libraries address: <b>"C:/Users/Farbod Parkhooi/AppData/Local/Programs/Python/Python311/Lib" </b>
+example for python libraries address: <b>"C:/Users/Unknow-per/AppData/Local/Programs/Python/Python311/Lib" </b>
 
 # Check
-```Python
+```python
 import Its_Hub
 Its_Hub.__version__()
 # Output:
 Its_Hub Library version is 0.0.9
+```
+
+# Test all functions
+```terminal
+cd src/test/
+python test.py
+#If you open this and you dont have any errors your library is complete installed
 ```
 
 # Our products
@@ -56,6 +65,9 @@ Its_Hub Library version is 0.0.9
     <li><a href="#Encryption_string">Encryption_string </a></li>
     <li><a href="#Hash">Hash </a></li>
     <li><a href="#Hash_file">Hash_file </a></li>
+    <li><a href="#Mouse">Mouse </a></li>
+    <li><a href="#Keyboard">Keyboard </a></li>
+    <li><a href="#QR">QR -> GUI </a></li>
 </ul>
 
 # How to use ... class
@@ -73,6 +85,8 @@ Its_Hub Library version is 0.0.9
     <li><a href="#Digital_message">Digital_message </a></li>
     <li><a href="#Hash">Hash </a></li>
     <li><a href="#Hash_file">Hash_file </a></li>
+    <li><a href="#Mouse">Mouse </a></li>
+    <li><a href="#Keyboard">Keyboard </a></li>
     <li><a href="#Links">Links </a></li>
     <li><a href="#Donate">Donate </a></li>
 </ul>
@@ -112,19 +126,7 @@ profile = hub.Fake_profile()
 Profile_list = profile.Create_profile()
 print(Profile_list)
 ```
-# Mini
-### Plus
-You can use this function for num1 + num2 (:
-```python
-result = hub.Mini.Plus(number=8, plus=10)
-print(ans)
-```
-### Count
-You can count and plus with this function.
-```Python
-count_ans = hub.Mini.Count(0, 5)
-print(count_ans)
-```
+
 
 # SQL
 ### Create_database
@@ -135,21 +137,28 @@ sql.Create_database()
 
 ### Create_Table
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'")
 sql.Create_Table()
 ```
 
 ### Save_in_database
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'")
 sql.Save_in_database("'Farbod Parkhooi', 'your@email.com', 'Example@2023'")
 ```
 
 ### Read_database
 ```Python
-sql = hub.SQL("Users", "'Name', 'Email', 'Password'") # You must write Table_name and Table_Attributes and you can write the Database_address, and Database_name
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'") 
 search_result = sql.Read_database("Email", "Name='Farbod Parkhooi'")
 print(search_result)
+```
+
+### Custome_command
+```python
+sql = hub.SQL("Users", "'Name', 'Email', 'Password'") 
+output = sql.Custome_command(command="NULL;") # your command
+print(output)
 ```
 
 # Computer_Vision
@@ -200,10 +209,16 @@ voice.Say(save_voice=True, File_name="voice.mp3")
 ### Create_QR
 ```Python
 qr = hub.QR()
-qr.Create_QR(Data="https://www.github.com/tik-ten/Its_Hub/", name="qrcode.png")
+qr.Create_QR(link="https://www.github.com/tik-ten/Its_Hub/", name="qrcode.png")
 ```
 output: <br>
 <img src="Files\out5.png">
+
+### GUI
+```python
+qr = hub.QR()
+qr.GUI()
+```
 
 # Web
 
@@ -233,6 +248,12 @@ os.Create_file(File_name="text.txt")
 
 # Also you can change the address of the file
 os.Create_file(File_name="text.txt", File_address="C:\Users\Farbod Parkhooi\Test_dir")
+
+```
+### Create_directory
+```Python
+os = hub.OS()
+os.Create_directory(Dir_name="Folder")
 ```
 
 ### Get_code_address
@@ -267,6 +288,13 @@ print(result)
 os = hub.OS()
 size = os.Get_app_size(File_address="", File_name="text.txt")
 print(size)
+```
+
+### Get_IP
+```Python
+os = hub.OS()
+IP = os.Get_IP()
+print(IP)
 ```
 
 # Encryption_string
@@ -345,6 +373,45 @@ output with default salt:
 Hash_file = hub.Hash_file(file_address="C:\\Users\\Farbod Parkhooi\\", file_name="text.txt")
 Hashed = Hash_file.Create()
 print(Hashed)
+```
+
+# Mouse
+
+### Listener
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+mouse_click = Mouse.Listener()
+```
+
+### Disable_mouse
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+Mouse.Disable_mouse()
+```
+
+### Enable_mouse
+```python
+hub = Its_Hub()
+Mouse = hub.Mouse()
+Mouse.Enable_mouse()
+```
+
+# Keyboard
+
+### Disable_keyboard
+```python
+hub = Its_Hub()
+Keyboard = hub.Keyboard()
+Keyboard.Disable_keyboard()
+```
+
+### Enable_keyboard
+```python
+hub = Its_Hub()
+Keyboard = hub.Keyboard()
+Keyboard.Enable_keyboard()
 ```
 
 # Links

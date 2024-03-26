@@ -32,35 +32,41 @@ TKHTMLVIEW
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 My name is Farbod Parkhooi(Or you can call me Tik Ten)
 This library Wikipedia page: https://simple.wikipedia.org/w/index.php?title=User%3AFarbod_Parkhooi%2FIts_Hub_Library
-This is Its_Hub doucuments: https://www.github.com/tik-ten/Its_Hub
+This is Its_Hub doucuments: https://www.github.com/Unknow-per/Its_Hub
 This is my Github link: https://www.github.com/tik-ten
+This Github profile is for my Hacking Tools: https://www.github.com/Unknow-per
 Thanks for use.
 """
-def Return_error(error, exit_code, line): 
+def Return_error(error, exit_code, class_name): 
     print(f"""
 _____________________________________________________________________________________
 We have an error!                                                                   |
                                                                                     |
-I think error it's:                                                                 |
+I think error is this:                                                                 |
 {error}                                                                |
                                                                                     |
-I think it's in line {line} of Its_Hub Library.                                         |
+I think it's in {class_name} class of Its_Hub Library.                                      |
+You can read and change it for yourself!                                            |
 Now i quit with exit code: {exit_code}                                                        |
 From Its_Hub library.                                                               |
 ____________________________________________________________________________________|
 """)
     quit(exit_code)
-def __version__():
-    print("Its_Hub Library version is 0.2.8")
+def __version__(): print("Its_Hub Library version is 0.3.2")
 def GET_ADDRESS(File_address="", File_name="text.txt"):
     if File_address != "": address = File_address + File_name
     else: address = File_name
     return address
 class Its_Hub():
-    print("YOU USING ***Its_Hub*** LIBRARY FOR DO SOMETHING IN THIS CODE.")
+    from colorama import init, Fore, Back, Style
+    init()
+    print(f"""{Style.BRIGHT + Fore.BLUE} YOU USING 𝑰𝒕𝒔_𝑯𝒖𝒃 LIBRARY FOR DO SOMETHING IN THIS CODE. \n This Library Created By Farbod Parkhooi (https://github.com/Unknow-per/Its-Hub_Library) """)
+    # Reset color 
+    print(Fore.RESET)
+    print(Style.RESET_ALL)
     def Faker(target):
         try: from faker import Faker
-        except ImportError: Return_error("import error. \nYou must install Faker library with: \npip3 install Faker", 0, 63)
+        except ImportError: Return_error("import error. \nYou must install Faker library with: \npip3 install Faker", 0, "Faker")
         faker = Faker()
         try:
             if target == "first_name": return faker.first_name()
@@ -71,7 +77,7 @@ class Its_Hub():
             elif target == "profile": return faker.profile()
             elif target == "job": return faker.job()
             elif target == "company": return faker.company()
-        except AttributeError: Return_error("Attribute error. Your faker library has a problem.", 0, "66 -> 73")
+        except AttributeError: Return_error("Attribute error. Your faker library has a problem.", 0, "faker")
     class Fake_profile():
         def __init__(self, Gender="M", Company=None, blood_group=None, website=None, username=None, name=None, sex=None, address=None, Job=None, mail=None):
             self.gender = Gender
@@ -129,18 +135,6 @@ ____________________________________________
             root.geometry("400x500")
             root.title("Your fake profile is ready!")
             root.mainloop()
-    class Mini():
-        def Plus(number, plus):
-            try: return number + int(plus)
-            except: Return_error("Value error. Plus isn't int!", 0, 135)
-        def Count(start_number, range_num):
-            try: 
-                start_number = int(start_number)
-                range_num = int(range_num)
-            except ValueError: Return_error("Value error. Start_number or range_num isn't int!", 0, 140)
-            for i in range(range_num):
-                start_number = start_number + 1
-            return start_number
     class SQL():
         def __init__(self, Table_name, Table_Attributes, Database_address="", Database_name="database"):
             self.Table_name = Table_name
@@ -149,12 +143,12 @@ ____________________________________________
             self.Name = Database_name
         def Create_database(self):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 152)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Create_database")
             connect = SQL.connect(self.Address + self.Name + ".db")
             connect.close()
         def Create_Table(self):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 157)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Create_Table")
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""CREATE TABLE IF NOT EXISTS {self.Table_name} ({self.Table_Attributes});""")
@@ -162,7 +156,7 @@ ____________________________________________
             connect.close()
         def Save_in_database(self, Attributes):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 165)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Save_in_database")
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""INSERT INTO {self.Table_name} ({self.Table_Attributes})
@@ -171,22 +165,30 @@ ____________________________________________
             connect.close()
         def Read_database(self, SELECT, WHERE=None):
             try: import sqlite3 as SQL
-            except ImportError: Return_error("Import error. You must install sqlite3.", 0, 174)
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Read_database")
             connect = SQL.connect(self.Address + self.Name + ".db")
             cursor = connect.cursor()
             cursor.execute(f"""SELECT {SELECT} FROM {self.Table_name} WHERE {WHERE};""")
             try: return str(cursor.fetchall()[0][0])
             except IndexError: return "not exist"
+        def Custome_command(self, command):
+            try: import sqlite3 as SQL
+            except ImportError: Return_error("Import error. You must install sqlite3.", 0, "SQL -> Read_database")
+            connect = SQL.connect(self.Address + self.Name + ".db")
+            cursor = connect.cursor()
+            cursor.execute(command)
+            try: return str(cursor.fetchall())
+            except IndexError: return False
     class Computer_Vision():
         def Start_video(_, VideoCapture=0, Show=True, exit_button="q", Detect_Hands=False, Detect_Faces=False, Detect_Pose=False):
             try: import cv2 as cv 
-            except ImportError: Return_error("Import error.  You must install opencv library with: \npip install opencv-python", 0, 183)
+            except ImportError: Return_error("Import error.  You must install opencv library with: \npip install opencv-python", 0, "Computer_Vision -> Start_video")
             if Detect_Hands != False or Detect_Faces != False or Detect_Pose != False: 
                 try: 
                     from cvzone.HandTrackingModule import HandDetector
                     from cvzone.FaceDetectionModule import FaceDetector
                     from cvzone.PoseModule import PoseDetector
-                except ImportError: Return_error("Import error.  You must install cvzone library with: \npip install cvzone", 0, 189)
+                except ImportError: Return_error("Import error.  You must install cvzone library with: \npip install cvzone", 0, "Computer_Vision -> Start_video")
             cap = cv.VideoCapture(VideoCapture)
             cap = cv.VideoCapture(0)
             try:
@@ -213,7 +215,7 @@ ____________________________________________
             self.gender = gender
         def Say(self, save_voice=False, File_name="voice.mp3"):
             try: import pyttsx3
-            except ImportError: Return_error("Import error. You must import pyttsx3 library with: \npip install pyttsx3", 0, 216)
+            except ImportError: Return_error("Import error. You must import pyttsx3 library with: \npip install pyttsx3", 0, "Voice -> Say")
             engine = pyttsx3.init()
             engine.setProperty('rate', int(self.speed))
             voices = engine.getProperty('voices')
@@ -223,24 +225,46 @@ ____________________________________________
             if save_voice != False: engine.save_to_file(self.text, File_name)
             engine.runAndWait()
     class QR():
-        def Create_QR(_, Data, name="qrcode.png"):
+        def Create_QR(_, link, name="qrcode.png"):
             try: import qrcode
-            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, 228)
-            img = qrcode.make(data=Data)
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, "QR -> Create_QR")
+            img = qrcode.make(data=link)
             img.save(name)
+        def GUI(_):
+            try: 
+                import qrcode
+                from tkinter import Tk, Entry, Label, Button
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install qrcode", 0, "QR -> GUI")
+            root = Tk()
+            Label(root, text="Link:").place(x=15, y=80)
+            Label(root, text="image name: ").place(x=15, y=150)
+            name = Entry(root, width=50)
+            link = Entry(root, width=50)
+            name.place(x=120, y=150)
+            link.place(x=80, y=80)
+            def Create():
+                link_o = link.get()
+                name_o = name.get()
+                img = qrcode.make(data=link_o)
+                img.save(name_o)
+            Button(root, text="Submit", command=Create).place(x=15, y=200)
+            root.resizable(False, False)
+            root.title("QR Code Creator(GUI)")
+            root.geometry("500x300")
+            root.mainloop()
     class Web():
         def Open_website(URL):
             try: import webbrowser 
-            except ImportError: Return_error("Import error. You must import webbrowser library.", 0, 234)
+            except ImportError: Return_error("Import error. You must import webbrowser library.", 0, "Web -> Open_website")
             webbrowser.open(url=URL)
     class OS():
         def Remove_file(_, File_address):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 239) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Remove_file") 
             os.remove(File_address)           
         def Remove_dir(_, Dir_address):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 243) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Remove_dir") 
             os.removedirs(Dir_address)
         def Create_file(_, File_name, File_address=""):
             if File_address != "": file = open(f"{File_address}\\{File_name}", "w")
@@ -248,24 +272,32 @@ ____________________________________________
             file.close()
         def Get_code_address(_):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 251) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Get_code_address") 
             return os.getcwd() 
         def Read_file(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 255) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Read_file") 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             file = open(address, 'r')
             return file.read()
         def Check_exist(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 261) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Check_exist") 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             return os.path.exists(address)
         def Get_file_size(_, File_address="", File_name="text.txt"):
             try: import os
-            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, 266) 
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Get_file_size") 
             address = GET_ADDRESS(File_address=File_address, File_name=File_name)
             return str(os.path.getsize(address)) + " bytes"
+        def Create_directory(_, Dir_name="folder"):
+            try: from os import system as osystem
+            except ImportError: Return_error("Import error. You must import os and shutil librar /:", 0, "OS -> Create_directory") 
+            osystem(f"mkdir {Dir_name}")
+        def Get_IP(_):
+            import socket
+            IPAddress = socket.gethostbyname(socket.gethostname())
+            return IPAddress
     class Encryption_string():
         def __init__(self, text, shift=5): # For dir you can use "dec" too
             self.text = text.lower()
@@ -303,15 +335,15 @@ ____________________________________________
             self.text = text
         def Show_info(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 306)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, "Digital_message -> Show_info")
             message.showinfo(title=self.title, message=self.text)
         def Show_warning(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 310)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, "Digital_message -> Show_warning")
             message.showwarning(title=self.title, message=self.text)
         def Show_error(self):
             try: from tkinter import messagebox as message
-            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, 314)
+            except ImportError: Return_error("Import error. I must import the tkinter library.", 0, "Digital_message -> Show_error")
             message.showerror(title=self.title, message=self.text)
     class Hash():
         def __init__(self, text, salt="13e355e545r45r8ew83q90123e", Hash_level="High"): # hash level can be Medium and Low
@@ -320,7 +352,7 @@ ____________________________________________
             self.salt = salt
         def Encode(self):
             try: from hashlib import md5, sha1, sha224, sha256, sha384, sha512
-            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 322)
+            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 311)
             text = str(md5(self.Text).hexdigest()).encode()
             if self.Hash_level == "High":
                 text = str(self.salt + sha1(text).hexdigest() + self.salt).encode()
@@ -340,10 +372,51 @@ ____________________________________________
             self.file_name = file_name
         def Create(self):
             try: from hashlib import md5
-            except ImportError: Return_error("Import error. I must import hashlib library.", 0, 322)
+            except ImportError: Return_error("Import error. I must import hashlib library.", 0, "Hash_file -> Create")
             address = GET_ADDRESS(self.file_address, self.file_name)
             with open(address, "r") as reader:
                 read = reader.readlines()
                 read = "".join(read).encode()
                 result = md5(read).hexdigest()
                 return result
+    class Mouse():
+        def __init__(self) -> None:
+            pass
+        def Listener(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Mouse -> Listener")
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    try: import pynput
+                    except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Mouse -> Listener")
+                    if button == pynput.mouse.Button.left:
+                        print("Left")
+                    elif button == pynput.mouse.Button.right:
+                        print("Right")
+                    elif button == pynput.mouse.Button.middle:
+                        print("Middle")
+            with pynput.mouse.Listener(on_click=on_click) as listener:
+                listener.join()
+        def Disable_mouse(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Mouse -> Disable_mouse")
+            mouse_listener = pynput.mouse.Listener(suppress=True)
+            mouse_listener.start()
+        def Enable_mouse(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Mouse -> Enable_mouse")
+            mouse_listener = pynput.mouse.Listener(suppress=True)
+            mouse_listener.stop()
+    class Keyboard():
+        def __init__(self) -> None:
+            pass
+        def Disable_keyboard(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Keyboard -> Disable_keyboard")
+            keyboard_listener = pynput.keyboard.Listener(suppress=True)
+            keyboard_listener.start()
+        def Enable_keyboard(self):
+            try: import pynput
+            except ImportError: Return_error("Import error. You must download qrcode library with: \npip install pynput", 0, "Keyboard -> Enable_keyboard")
+            keyboard_listener = pynput.keyboard.Listener(suppress=True)
+            keyboard_listener.stop()
